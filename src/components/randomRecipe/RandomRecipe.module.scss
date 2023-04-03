@@ -1,0 +1,112 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    overflow: hidden; 
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.6);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.6);
+    backdrop-filter: blur(3px) saturate(200%);
+    -webkit-backdrop-filter: blur(3px) saturate(200%);
+    background-color: rgba(204, 223, 239,0.61);
+    // border: 1px solid rgba(255, 255, 255, 0.125);
+
+    .imgItem{
+        width: 300px;
+        img{
+            width: 300px;
+            height: 240px;
+        }
+    }
+    .wrapperItem{
+        display: flex;
+        flex-direction: column;
+        // background-color: rebeccapurple;
+        width: 100%;
+        height: 150px;
+        justify-content: space-around;
+        // align-items: flex-end;
+
+        .titleItem{
+            // background-color: gold;
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(57, 57, 58);
+            font-family: 'Brush Script,Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .timeItem{
+            display: flex;
+            // background-color: red;
+            // width: 100%;
+            padding-left: 20px;
+        }
+
+        .buttonWrapper{
+            display: flex;
+            width: 100%;
+            // height: 100px;
+            justify-content: space-around;
+            align-items: center;
+            // background-color: red;
+            padding: 5px;
+
+            .ingredientsButton, .instructionsButton{
+                font-size: 25px;
+                cursor: pointer;
+
+                &:hover{
+                    transition-duration: 0.3s;
+                    color: rgb(102, 102, 107);
+                }
+            }
+        }
+
+    }
+    
+
+    .wrapperStopPropagation{
+        
+
+        .ingredientsItem{
+            
+            width: 300px;
+            height: 400px;
+            
+
+            .nameItem{
+                font-size: 25px;
+                text-align: center;
+            }
+
+            .ingredientsItemWrapper{
+                display: flex;
+                flex-direction: column;
+                // background-color: aqua;
+                font-size: 20px;
+                height: 375px;
+                overflow-y: auto;
+                    &::-webkit-scrollbar{
+                        width: 8px;           
+                    }
+                    &::-webkit-scrollbar-thumb{
+                        width: 20px;
+                        height: 20px;
+                        background: rgb(68, 18, 118);
+                    }
+                    &::-webkit-scrollbar-track{
+                        background: #dddd;
+                    }
+                .item{
+                    border-bottom: 1px solid rgb(110, 103, 103);
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

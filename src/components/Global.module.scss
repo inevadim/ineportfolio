@@ -1,0 +1,17 @@
+@mixin styleFont{
+    // color: rgb(99, 45, 153);
+    color: rgb(45, 86, 153);
+    text-shadow: rgba(45, 86, 153, 0.552) 3px 5px 2px;
+    font-size: 45px;
+    font-weight: 600;
+    font-family: 'Brush Script,Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.nameApp{
+    @include styleFont;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 800;          
+    margin-bottom: 10px;
+}
