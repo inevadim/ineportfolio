@@ -6,7 +6,7 @@
 
 .wrapper{
     @include centerElement();
-
+    margin: 5px;
     width: 300px;
     height: 400px;
     overflow: hidden; 
