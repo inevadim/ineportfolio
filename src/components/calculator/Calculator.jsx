@@ -43,7 +43,7 @@ export const Calculator = () => {
   };
 
   const del = () => {
-    if ([example.join('')] == 'Infinity') {
+    if ([example.join('')] == 'Infinity' || [example.join('')] == 'NaN') {
       return setExample([]);
     }
     return setExample([example.join('').slice(0, -1)]);
