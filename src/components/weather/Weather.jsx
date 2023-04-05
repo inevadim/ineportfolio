@@ -3,6 +3,8 @@ import styles from './Weather.module.scss';
 import global from './../Global.module.scss';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
 
 import {
   faXmark,
@@ -12,7 +14,8 @@ import {
   faCloud,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const Weather = () => {
+export const Weather = ({ idItem }) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=d340ddd7f500656b21b6a44403c2b480`;
@@ -25,10 +28,16 @@ export const Weather = () => {
       setLocation('');
     }
   };
+
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.weatherWrapper}>
-        <div className={styles.del}>
+        <div className={styles.del} onClick={() => deleteItems()}>
           <FontAwesomeIcon icon={faXmark} />
         </div>
         <div className={global.nameApp}>Weather</div>

@@ -3,13 +3,15 @@ import styles from './RandomRecipe.module.scss';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
 
-export const RandomRecipe = () => {
+export const RandomRecipe = ({ idItem }) => {
   const [recipe, setRecipe] = useState(null);
   const [mass, setMass] = useState(null);
   const [visibleIngredients, setVisibleIngredients] = useState(false);
   const [visibleInstructions, setVisibleInstructions] = useState(false);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     // if (recipe !== null) {
     const options = {
@@ -32,10 +34,16 @@ export const RandomRecipe = () => {
       });
     // }
   }, [recipe]);
+
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper} onClick={() => setRecipe(Math.random())}>
       <div className={styles.del} onClick={e => e.stopPropagation()}>
-        <div className={styles.wrapDel}>
+        <div className={styles.wrapDel} onClick={() => deleteItems()}>
           <FontAwesomeIcon icon={faXmark} />
         </div>
       </div>

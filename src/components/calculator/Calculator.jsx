@@ -2,11 +2,14 @@ import { useState } from 'react';
 import styles from './Calculator.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDeleteLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
 
 import {} from '@fortawesome/free-solid-svg-icons';
-export const Calculator = () => {
+export const Calculator = ({ idItem }) => {
   const [example, setExample] = useState([]);
   const [floatExample, setFloatExample] = useState(false);
+  const dispatch = useDispatch();
   const numberItem = item => {
     let doubleItem = example.join('').slice(-1);
     let firstItem = example.join('').slice(0, 1);
@@ -72,9 +75,14 @@ export const Calculator = () => {
     }
   };
 
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.del}>
+      <div className={styles.del} onClick={() => deleteItems()}>
         <FontAwesomeIcon icon={faXmark} />
       </div>
       <div className={styles.wrapperDisplay}>{example}</div>

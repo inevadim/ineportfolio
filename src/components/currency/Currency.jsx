@@ -3,13 +3,15 @@ import styles from './Currency.module.scss';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
 
-export const Currency = () => {
+export const Currency = ({ idItem }) => {
   const [currencyUsd, setCurrencyUsd] = useState([]);
   const [currencyEur, setCurrencyEur] = useState([]);
   const [currencyPln, setCurrencyPln] = useState([]);
   const [currencyRub, setCurrencyRub] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -30,9 +32,15 @@ export const Currency = () => {
         console.error(error);
       });
   }, []);
+
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.del}>
+      <div className={styles.del} onClick={() => deleteItems()}>
         <FontAwesomeIcon icon={faXmark} />
       </div>
       <div className={styles.wrapperCurrency}>

@@ -4,15 +4,17 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
 
-export const Films = () => {
+export const Films = ({ idItem }) => {
   const [dataFilm, setDataFilm] = useState(null);
   const [inputText, setInputText] = useState(null);
   const [nameFilm, setNameFilm] = useState(null);
   const changeInput = data => {
     setInputText(data);
   };
-
+  const dispatch = useDispatch();
   const enterFilm = () => {
     setDataFilm(null);
     setNameFilm(inputText);
@@ -34,9 +36,14 @@ export const Films = () => {
     }
   }, [nameFilm]);
 
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.del}>
+      <div className={styles.del} onClick={() => deleteItems()}>
         <FontAwesomeIcon icon={faXmark} />
       </div>
       <div className={styles.wrapperHead}>

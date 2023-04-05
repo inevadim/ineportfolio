@@ -3,8 +3,10 @@ import { useState } from 'react';
 import styles from './Timer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
 
-export const Timer = () => {
+export const Timer = ({ idItem }) => {
   const [minLeft, setMinLeft] = useState(0);
   const [minRight, setMinRight] = useState(0);
   const [secLeft, setSecLeft] = useState(0);
@@ -12,7 +14,7 @@ export const Timer = () => {
   //   const [milLeft, setMilLeft] = useState(0);
   //   const [milRight, setMilRight] = useState(0);
   const [time, setTime] = useState(0);
-
+  const dispatch = useDispatch();
   const start = () => {
     return setTime(1);
   };
@@ -56,9 +58,14 @@ export const Timer = () => {
     return () => clearTimeout(timer);
   }, [minLeft, minRight, secLeft, secRight, time]);
 
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.del}>
+      <div className={styles.del} onClick={() => deleteItems()}>
         <FontAwesomeIcon icon={faXmark} />
       </div>
       <div className={styles.wrapperSecundomer}>

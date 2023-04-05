@@ -37,19 +37,19 @@ const App = () => {
         {widgets.map(item => (
           <div key={v4()}>
             {item.name == 'timer' ? (
-              <Timer />
+              <Timer idItem={item.id} />
             ) : item.name == 'calculator' ? (
-              <Calculator />
+              <Calculator idItem={item.id} />
             ) : item.name == 'weather' ? (
-              <Weather />
+              <Weather idItem={item.id} />
             ) : item.name == 'toDo' ? (
               <ToDo idItem={item.id} />
             ) : item.name == 'randomRecipe' ? (
-              <RandomRecipe />
+              <RandomRecipe idItem={item.id} />
             ) : item.name == 'films' ? (
-              <Films />
+              <Films idItem={item.id} />
             ) : item.name == 'currency' ? (
-              <Currency />
+              <Currency idItem={item.id} />
             ) : (
               ''
             )}
