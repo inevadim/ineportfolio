@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 1056,
+  // value: [`timer`, `calculator`, `toDo`, `weather`, `randomRecipe`, `films`, `currency`],
+  value: JSON.parse(localStorage.getItem('panel')) || [],
 };
 
 export const panelSlice = createSlice({
@@ -18,13 +19,21 @@ export const panelSlice = createSlice({
     decrement: state => {
       state.value -= 1;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    add: (state, action) => {
+      state.value.push(action.payload);
+      localStorage.setItem('panel', JSON.stringify(state.value));
+    },
+    deleteItem: (state, action) => {
+      // console.log(state.value.id);
+      state.value = state.value.filter(item => item.id !== action.payload);
+      console.log(action.payload);
+      // state.value = action.payload;
+      localStorage.setItem('panel', JSON.stringify(state.value));
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = panelSlice.actions;
+export const { increment, decrement, add, deleteItem } = panelSlice.actions;
 
 export default panelSlice.reducer;

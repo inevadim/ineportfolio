@@ -3,12 +3,15 @@ import global from './../Global.module.scss';
 import { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-export const ToDo = () => {
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../redux/panelSlice';
+
+export const ToDo = ({ idItem }) => {
   const [toDo, setToDo] = useState(JSON.parse(localStorage.getItem('toDo')) || []);
   const [inputValue, setInputValue] = useState('');
 
+  const dispatch = useDispatch();
   useEffect(() => {
     return localStorage.setItem('toDo', JSON.stringify(toDo));
   }, [toDo]);
@@ -38,9 +41,14 @@ export const ToDo = () => {
     setToDo(toDo.filter(item => item.id !== id));
   };
 
+  const deleteItems = () => {
+    // setToDo(toDo.filter(el => el.id !== item));
+    return dispatch(deleteItem(idItem));
+  };
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.del}>
+      <div className={styles.del} onClick={() => deleteItems()}>
         <FontAwesomeIcon icon={faXmark} />
       </div>
       <div className={styles.wrapperHead}>
