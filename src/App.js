@@ -11,15 +11,24 @@ import { NewItem } from './components/newItem/NewIten';
 import { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
-// import { add } from './redux/panelSlice';
+import { change, add } from './redux/panelSlice';
 
 const App = () => {
   const valuePanel = useSelector(state => state.panel.value);
+  const visibleModal = useSelector(state => state.panel.valueVisible);
   const dispatch = useDispatch();
   const [widgets, setWidgets] = useState(valuePanel);
   useEffect(() => {
     setWidgets(valuePanel);
   }, [valuePanel]);
+
+  const addItem = name => {
+    const obj = {
+      id: v4(),
+      name: name,
+    };
+    return dispatch(add(obj));
+  };
 
   // const [widgets, setWidgets] = useState([
   //   <Timer />,
@@ -30,6 +39,10 @@ const App = () => {
   //   <Calculator />,
   //   <Currency />,
   // ]);
+
+  const changeItem = () => {
+    return dispatch(change());
+  };
 
   return (
     <div className={styles.app}>
@@ -66,6 +79,33 @@ const App = () => {
         <NewItem /> */}
       </div>
       {console.log(valuePanel)}
+      {visibleModal && (
+        <div className={styles.modalAdd} onClick={() => changeItem()}>
+          <div className={styles.wrapperModal}>
+            <div className={styles.item} onClick={() => addItem('toDo')}>
+              toDo
+            </div>
+            <div className={styles.item} onClick={() => addItem('timer')}>
+              timer
+            </div>
+            <div className={styles.item} onClick={() => addItem('currency')}>
+              currency
+            </div>
+            <div className={styles.item} onClick={() => addItem('films')}>
+              films
+            </div>
+            <div className={styles.item} onClick={() => addItem('randomRecipe')}>
+              randomRecipe
+            </div>
+            <div className={styles.item} onClick={() => addItem('calculator')}>
+              calculator
+            </div>
+            <div className={styles.item} onClick={() => addItem('weather')}>
+              weather
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

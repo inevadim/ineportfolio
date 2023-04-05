@@ -3,21 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   // value: [`timer`, `calculator`, `toDo`, `weather`, `randomRecipe`, `films`, `currency`],
   value: JSON.parse(localStorage.getItem('panel')) || [],
+  valueVisible: false,
 };
 
 export const panelSlice = createSlice({
   name: 'panel',
   initialState,
   reducers: {
-    increment: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
-    },
-    decrement: state => {
-      state.value -= 1;
+    change: (state, action) => {
+      state.valueVisible = !state.valueVisible;
+      // localStorage.setItem('panel', JSON.stringify(state.value));
     },
     add: (state, action) => {
       state.value.push(action.payload);
@@ -34,6 +29,6 @@ export const panelSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, add, deleteItem } = panelSlice.actions;
+export const { add, deleteItem, change } = panelSlice.actions;
 
 export default panelSlice.reducer;
