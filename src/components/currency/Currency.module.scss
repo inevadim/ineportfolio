@@ -26,54 +26,39 @@
 
     border: 1px solid rgba(255, 255, 255, 0.125);
 
-    .wrapperDisplay{
+    .wrapperCurrency{
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
         align-items: center;
-        justify-content: flex-end;
-        padding-right: 10px;
-        margin-top: 20px;
-        width: 220px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 5px;
+        width: 250px;
+        height: 350px;
         background-color: #7988da;
         color:#1d296c;
         box-shadow: 13px 13px 26px rgba(0, 0, 0, 0.3), -13px -13px 26px rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        margin-top: 20px;
 
-    }
-
-    .wrapperTabs{
-        width: 250px;
-        height: 300px;
-        margin-top: 10px;   
-        // background-color: red;
-        @include centerElement();
-        flex-wrap: wrap;
-
-        .tab{
-            margin: 5px;
-            @include centerElement();
+        .wrapperCurrencyItem{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 140px;
+            // border: 1px solid;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 10px;
             background-color: #7988da;
-            color:#1d296c;
-            width: 50px;
-            height: 50px;
-            border-radius: 15%;
-            cursor: pointer;
-            // box-shadow: 2px 2px 6px rgba(43, 28, 177, 0.3), -4px -4px 6px rgba(64, 29, 238, 0.3);
             box-shadow: 13px 13px 26px rgba(0, 0, 0, 0.3), -13px -13px 26px rgba(255, 255, 255, 0.3);
 
-            &:hover{
-                color:#535ea0;
-                // scale: 1.02;
-                transition-duration: 0.2s;
-            }
 
-            &:active{
-                scale: 0.97;
-                transition-duration: 0.2s;
+            .price{
+                color: #145523;
+                margin: 5px;
             }
-
         }
     }
+
 }

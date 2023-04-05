@@ -26,7 +26,7 @@ export const ToDo = () => {
         value: inputValue,
       },
     ]);
-    console.log(toDo);
+    // console.log(toDo);
   };
 
   const checkedItem = id => {

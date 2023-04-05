@@ -1,4 +1,4 @@
-// import { AboutMe } from './components/aboutMe/AboutMe';
+import { Currency } from './components/currency/Currency';
 import { Calculator } from './components/calculator/Calculator';
 import { Films } from './components/films/Films';
 // import { Header } from './components/header/Header';
@@ -20,6 +20,7 @@ const App = () => {
         <RandomRecipe />
         <ToDo />
         <Calculator />
+        <Currency />
       </div>
     </div>
   );

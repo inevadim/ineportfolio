@@ -25,7 +25,7 @@ export const Films = () => {
       axios
         .request(options)
         .then(data => {
-          console.log(data.data);
+          // console.log(data.data);
           setDataFilm(data.data.results);
         })
         .catch(err => console.log(err));
@@ -58,7 +58,7 @@ export const Films = () => {
           <div className={styles.descriptionFilm}>{dataFilm[0].description} </div>
         </div>
       ) : (
-        console.log('poka null')
+        ''
       )}
     </div>
   );
