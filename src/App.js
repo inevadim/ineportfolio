@@ -10,8 +10,12 @@ import styles from './Global.module.scss';
 import { NewItem } from './components/newItem/NewIten';
 import { useState } from 'react';
 import { v4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
 
 const App = () => {
+  const valuePanel = useSelector(state => state.panel.value);
+  const dispatch = useDispatch();
+
   const [widgets, setWidgets] = useState([
     <Timer />,
     <Weather />,
