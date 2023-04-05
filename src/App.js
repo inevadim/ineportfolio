@@ -8,21 +8,36 @@ import { ToDo } from './components/toDo/ToDo';
 import { Weather } from './components/weather/Weather';
 import styles from './Global.module.scss';
 import { NewItem } from './components/newItem/NewIten';
+import { useState } from 'react';
+import { v4 } from 'uuid';
 
 const App = () => {
+  const [widgets, setWidgets] = useState([
+    <Timer />,
+    <Weather />,
+    <Films />,
+    <RandomRecipe />,
+    <ToDo />,
+    <Calculator />,
+    <Currency />,
+    <NewItem />,
+  ]);
   return (
     <div className={styles.app}>
-      {/* <Header /> */}
-      {/* <AboutMe /> */}
+      {/* <Timer /> */}
+      {/* {widgets.map(item => item)} */}
       <div className={styles.wrapper}>
-        <Timer />
+        {widgets.map(item => (
+          <div key={v4()}>{item}</div>
+        ))}
+        {/* <Timer />
         <Weather />
         <Films />
         <RandomRecipe />
         <ToDo />
         <Calculator />
         <Currency />
-        <NewItem />
+        <NewItem /> */}
       </div>
     </div>
   );

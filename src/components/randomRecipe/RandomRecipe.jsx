@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './RandomRecipe.module.scss';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
 export const RandomRecipe = () => {
   const [recipe, setRecipe] = useState(null);
   const [mass, setMass] = useState(null);
@@ -31,6 +34,11 @@ export const RandomRecipe = () => {
   }, [recipe]);
   return (
     <div className={styles.wrapper} onClick={() => setRecipe(Math.random())}>
+      <div className={styles.del} onClick={e => e.stopPropagation()}>
+        <div className={styles.wrapDel}>
+          <FontAwesomeIcon icon={faXmark} />
+        </div>
+      </div>
       {(visibleIngredients === false) & (visibleInstructions === false) ? (
         <div>
           <div className={styles.imgItem}>{mass !== null && <img src={mass.image} />}</div>

@@ -3,6 +3,7 @@ import global from './../Global.module.scss';
 import { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 export const ToDo = () => {
   const [toDo, setToDo] = useState(JSON.parse(localStorage.getItem('toDo')) || []);
@@ -39,6 +40,9 @@ export const ToDo = () => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.del}>
+        <FontAwesomeIcon icon={faXmark} />
+      </div>
       <div className={styles.wrapperHead}>
         <div className={global.nameApp}>ToDo</div>
         <div className={styles.inputApp}>

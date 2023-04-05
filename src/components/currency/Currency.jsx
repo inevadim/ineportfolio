@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './Currency.module.scss';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export const Currency = () => {
   const [currencyUsd, setCurrencyUsd] = useState([]);
@@ -30,6 +32,9 @@ export const Currency = () => {
   }, []);
   return (
     <div className={styles.wrapper}>
+      <div className={styles.del}>
+        <FontAwesomeIcon icon={faXmark} />
+      </div>
       <div className={styles.wrapperCurrency}>
         <div className={styles.wrapperCurrencyItem}>
           <div>{currencyUsd.Cur_Abbreviation}</div>

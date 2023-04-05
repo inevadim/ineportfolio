@@ -2,6 +2,8 @@ import styles from './Films.module.scss';
 import global from './../Global.module.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export const Films = () => {
   const [dataFilm, setDataFilm] = useState(null);
@@ -34,6 +36,9 @@ export const Films = () => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.del}>
+        <FontAwesomeIcon icon={faXmark} />
+      </div>
       <div className={styles.wrapperHead}>
         <div className={global.nameApp}>Films</div>
         <div className={styles.inputApp}>

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import styles from './Calculator.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
+import { faDeleteLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
+
+import {} from '@fortawesome/free-solid-svg-icons';
 export const Calculator = () => {
   const [example, setExample] = useState([]);
   const [floatExample, setFloatExample] = useState(false);
@@ -72,6 +74,9 @@ export const Calculator = () => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.del}>
+        <FontAwesomeIcon icon={faXmark} />
+      </div>
       <div className={styles.wrapperDisplay}>{example}</div>
       <div className={styles.wrapperTabs}>
         <div

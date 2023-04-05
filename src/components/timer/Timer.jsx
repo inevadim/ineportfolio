@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from './Timer.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export const Timer = () => {
   const [minLeft, setMinLeft] = useState(0);
@@ -56,7 +58,9 @@ export const Timer = () => {
 
   return (
     <div className={styles.wrapper}>
-      {/* <div className={styles.del}>del</div> */}
+      <div className={styles.del}>
+        <FontAwesomeIcon icon={faXmark} />
+      </div>
       <div className={styles.wrapperSecundomer}>
         <div className={styles.tabloWrapper}>
           <div className={styles.tablo}>

@@ -3,7 +3,9 @@ import styles from './Weather.module.scss';
 import global from './../Global.module.scss';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
+  faXmark,
   faTemperatureThreeQuarters,
   faWind,
   faCity,
@@ -26,6 +28,9 @@ export const Weather = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.weatherWrapper}>
+        <div className={styles.del}>
+          <FontAwesomeIcon icon={faXmark} />
+        </div>
         <div className={global.nameApp}>Weather</div>
         <div className={styles.inputApp}>
           <input
