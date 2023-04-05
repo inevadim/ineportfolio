@@ -56,6 +56,7 @@ export const Timer = () => {
 
   return (
     <div className={styles.wrapper}>
+      {/* <div className={styles.del}>del</div> */}
       <div className={styles.wrapperSecundomer}>
         <div className={styles.tabloWrapper}>
           <div className={styles.tablo}>

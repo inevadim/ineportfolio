@@ -7,6 +7,7 @@ import { Timer } from './components/timer/Timer';
 import { ToDo } from './components/toDo/ToDo';
 import { Weather } from './components/weather/Weather';
 import styles from './Global.module.scss';
+import { NewItem } from './components/newItem/NewIten';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <ToDo />
         <Calculator />
         <Currency />
+        <NewItem />
       </div>
     </div>
   );
