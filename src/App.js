@@ -20,7 +20,6 @@ const App = () => {
     <ToDo />,
     <Calculator />,
     <Currency />,
-    <NewItem />,
   ]);
   return (
     <div className={styles.app}>
@@ -30,6 +29,7 @@ const App = () => {
         {widgets.map(item => (
           <div key={v4()}>{item}</div>
         ))}
+        <NewItem />
         {/* <Timer />
         <Weather />
         <Films />

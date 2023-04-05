@@ -23,25 +23,30 @@ body{
 }
 
 .app{
-    width: 100vw;
-    // height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    // width: 100vw;
+    // background-color: rebeccapurple;
+    
+
+    // overflow-x: hidden;
+    // overflow-y: auto;
+
+
     // border: 1px solid;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
 
     .wrapper{
-      width: 100%;
+      // background-color: green;
+      // width: 1500px;
       min-height: 400px;
       // overflow: hidden;
       // border: 1px solid;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: flex-start;
     }
 
 }
