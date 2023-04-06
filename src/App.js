@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import { change, add } from './redux/panelSlice';
+import { Header } from './components/header/Header';
 
 const App = () => {
   const valuePanel = useSelector(state => state.panel.value);
@@ -42,6 +43,7 @@ const App = () => {
 
   return (
     <div className={styles.app}>
+      <Header />
       <div className={styles.wrapper}>
         {widgets.map(item => (
           <div key={v4()}>
@@ -74,7 +76,7 @@ const App = () => {
         <Currency />
         <NewItem /> */}
       </div>
-      {console.log(valuePanel)}
+      {/* {console.log(valuePanel)} */}
     </div>
   );
 };
