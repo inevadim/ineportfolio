@@ -19,10 +19,10 @@ export const NewItem = () => {
   const visibleModal = useSelector(state => state.panel.valueVisible);
   const dispatch = useDispatch();
 
-  const addItem = () => {
+  const addItem = name => {
     const obj = {
       id: v4(),
-      name: 'toDo',
+      name: name,
     };
     return dispatch(add(obj));
   };
