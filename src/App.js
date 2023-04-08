@@ -13,6 +13,7 @@ import { v4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import { change, add } from './redux/panelSlice';
 import { Header } from './components/header/Header';
+import { Draw } from './components/draw/Draw';
 
 const App = () => {
   const valuePanel = useSelector(state => state.panel.value);
@@ -61,6 +62,8 @@ const App = () => {
               <Films idItem={item.id} />
             ) : item.name == 'currency' ? (
               <Currency idItem={item.id} />
+            ) : item.name == 'draw' ? (
+              <Draw idItem={item.id} />
             ) : (
               ''
             )}

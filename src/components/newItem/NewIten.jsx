@@ -4,6 +4,7 @@ import { add, change } from './../../redux/panelSlice';
 import { v4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faPencil,
   faList,
   faCloud,
   faXmark,
@@ -79,6 +80,12 @@ export const NewItem = () => {
                 <FontAwesomeIcon icon={faCloud} />
               </div>
               <div>weather</div>
+            </div>
+            <div className={styles.item} onClick={() => addItem('draw')}>
+              <div>
+                <FontAwesomeIcon icon={faPencil} />
+              </div>
+              <div>draw</div>
             </div>
           </div>
         </div>
